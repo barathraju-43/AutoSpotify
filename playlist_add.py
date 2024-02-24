@@ -2,9 +2,9 @@ import spotipy, os, time
 from spotipy.oauth2 import SpotifyOAuth
 from dotenv import load_dotenv
 
-
-SPOTIFY_CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_ID')
-SPOTIFY_CLIENT_SECRET = os.environ.get('SPOTIFY_CLIENT_SECRET')
+load_dotenv()
+SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
+SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
 
 print(SPOTIFY_CLIENT_ID)
 # Set up authentication
@@ -60,10 +60,9 @@ def add_new_songs(source_playlist_id, destination_playlist_id):
 
 
 if __name__ == "__main__":
-    load_dotenv()
-    # configure()
-    source_playlist_id = os.environ.get('source_playlist_id')
-    destination_playlist_id = os.environ.get('destination_playlist_id')
+   
+    source_playlist_id = os.getenv('source_playlist_id')
+    destination_playlist_id = os.getenv('destination_playlist_id')
 
     # Set up a loop for continuous execution
     while True:
